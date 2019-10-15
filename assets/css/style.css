@@ -12,7 +12,7 @@ html {
     z-index: -1px;
 }
 
-#video {
+#videoBackground {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -28,34 +28,36 @@ html {
     transform: translateX(-50%) translateY(-50%);
 }
 
-.card-panel { 
-    position: relative;
-    bottom: -350px;
-    font-weight: lighter; 
+img { 
+    height: 20%;
+    width: 25%;
+}
+
+.card, .card-tabs, .tabs { 
     border-radius: 20px !important;
-    line-height: 30px;
-    font-size: 20px;
-    transform: translateY(-50%);  
-    margin: 0 auto;
-    font-family: 'Zilla Slab', serif;
+    padding: 10px;
 }
 
 #ReadButton { 
     background: transparent;
     font-size: 30px !important;
     font-family: 'Abril Fatface', cursive !important;
-    font-weight: 900;
+    font-weight: 500px;
     border-radius: 20px; 
-    border-style: none;
-    color: red lighten-5;
+    width: 500px;
+    color: ivory;
 }
 
 #ReadButton:hover { 
     background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50));
 }
 
-#demo { 
+#results { 
     font-family: 'Zilla Slab', serif;
     font-size: 20px;
+    line-height: 25px;
 }
 
+#videoWin {
+padding-top: 10px 
+}

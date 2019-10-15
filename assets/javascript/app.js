@@ -2,6 +2,7 @@
 $(document).ready(() => {
     M.AutoInit();
 
+    $('#videoWin').hide();
     function startGame() {
         startScreen = "<p class='text-center main-button-container'><a class='btn btn-primary btn-lg btn-block start-button' href='#' role='button'>Start Quiz</a></p>";
         $(".container").prepend(startScreen);
