@@ -7,21 +7,56 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../Izzy-Trivia-Game/assets/css/style.css">
-    <link rel="styleshee dt" href="../Izzy-Trivia-Game/assets/css/reset.css">
+    <link rel="stylesheet" href="../Izzy-Trivia-Game/assets/css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Zilla+Slab&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="container col s12 m4 l3 center-align"> 
-  
+
+        
+<!--Start of the Background Video from Magic Book-->
+<video playsinline muted autoplay loop id="video"> 
+        <source src="../Izzy-Trivia-Game/assets/video/Magic-book-with-animation-glowing-letters.mp4">
+</video>
+<!--End of the Background Video from Magic Book-->
+
+<div class="container col s12 m4 l3"> 
+    <div class="card-panel center-align">
+            <a id='ReadButton' class="btn tooltipped row red lighten-3" data-position="top" data-tooltip="Click Read Here More to Type Faster" onclick='typeWriter()'>Read Here</a>
+            <p id="demo"></p>
+            <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width">
+            <li class="tab"><a href="#test4">Test 1</a></li>
+            <li class="tab"><a class="active" href="#test5">Test 2</a></li>  
+            <li class="tab"><a href="#test6">Test 3</a></li>
+            <li class="tab"><a href="#test6">Test 4</a> </li>
+            </ul>
+            </div>
+    </div>
+
 </div>
 
-
+<script>
+        var i = 0;
+        var txt = 'So Welcome to Izzy Literary Trivia Game, so the game are timed questions about quotes from literary figures and begins something like this.....  What literary figure said the following quote? ..  "Yes, but in the case of the writer, or in the case of every artist, we have the duty, for the most part, happy duty, of transforming everything into symbols. Those symbols can be colors, shapes, sounds. In the case of the poet, they are sounds but also words... Also fables, tales, poems. What I mean is that the work of the poet is endless. Its not about working from one hour to another. You are constantly receiving something from the outer world. It all has to be transformed; it eventually has to be changed. And in any moment a revelation may come. That is to say, that the poet never rests. He is working constantly, when he dreams too..."';
+        var speed = 90;
+        
+        function typeWriter() {
+          if (i < txt.length) {
+            document.getElementById("demo").innerHTML += txt.charAt(i); i++;
+            setTimeout(typeWriter, speed)
+          }
+        }
+        </script>
+        
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="../Izzy-Trivia-Game/assets/javascript/app.js"> </script>
+
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"> </script>
+
+
 </html>

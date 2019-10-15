@@ -1,0 +1,61 @@
+html {
+    box-sizing: border-box; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url(""); 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-attachment: center;
+    display: flex; 
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+    flex: 1; 
+    z-index: -1px;
+}
+
+#video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-attachment: center;
+    z-index: -1;
+    background-color: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50));
+    background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50));
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.card-panel { 
+    position: relative;
+    bottom: -350px;
+    font-weight: lighter; 
+    border-radius: 20px !important;
+    line-height: 30px;
+    font-size: 20px;
+    transform: translateY(-50%);  
+    margin: 0 auto;
+    font-family: 'Zilla Slab', serif;
+}
+
+#ReadButton { 
+    background: transparent;
+    font-size: 30px !important;
+    font-family: 'Abril Fatface', cursive !important;
+    font-weight: 900;
+    border-radius: 20px; 
+    border-style: none;
+    color: red lighten-5;
+}
+
+#ReadButton:hover { 
+    background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50));
+}
+
+#demo { 
+    font-family: 'Zilla Slab', serif;
+    font-size: 20px;
+}
+
