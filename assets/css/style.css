@@ -61,7 +61,7 @@ top: 370px;
     font-family: 'Abril Fatface', cursive !important;
     font-weight: 500px;
     border-radius: 20px; 
-    width: 500px;
+    min-width: 100%;
     color: ivory;
 }
 
