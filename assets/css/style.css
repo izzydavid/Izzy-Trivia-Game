@@ -18,7 +18,6 @@ html {
     left: 50%;
     min-width: 100%;
     min-height: 100%;
-    background-size: cover;
     background-repeat: no-repeat; 
     background-size: cover;
     background-attachment: center;
@@ -26,6 +25,20 @@ html {
     background-color: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50));
     background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50));
     transform: translateX(-50%) translateY(-50%);
+}
+
+#videoWin {
+    position: fixed;
+    top: 22%;
+    left: 50%;
+    max-width: 25%;
+    background-repeat: no-repeat; 
+    background-attachment: center;
+    z-index: -1;
+    background-color: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50));
+    background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50));
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 20px !important;
 }
 
 img { 
@@ -36,6 +49,10 @@ img {
 .card, .card-tabs, .tabs { 
     border-radius: 20px !important;
     padding: 10px;
+}
+.card { 
+position: fixed;
+top: 370px; 
 }
 
 #ReadButton { 
@@ -52,12 +69,18 @@ img {
     background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50));
 }
 
-#results { 
+#results, p { 
     font-family: 'Zilla Slab', serif;
-    font-size: 20px;
-    line-height: 25px;
+    font-size: 25px;
+    line-height: 30px;
+    color: darkslategrey;
+    font-weight: 900; 
+    animation: typewriter 4s steps(44) 1s 1 normal both,
+    blinkTextCursor 400ms steps(44) infinite normal;
+
 }
 
-#videoWin {
-padding-top: 10px 
-}
+@keyframes blinkTextCursor{
+    from{border-right-color: rgba(255,255,255,.75);}
+    to{border-right-color: transparent;}
+  }

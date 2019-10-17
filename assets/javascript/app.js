@@ -1,15 +1,50 @@
 'use strict'
 $(document).ready(() => {
-    M.AutoInit();
+        $('#videoWin').hide();
 
-    $('#videoWin').hide();
-    function startGame() {
-        startScreen = "<p class='text-center main-button-container'><a class='btn btn-primary btn-lg btn-block start-button' href='#' role='button'>Start Quiz</a></p>";
-        $(".container").prepend(startScreen);
-    }
+        var x = document.getElementById("myAudio"); 
+
+        function playAudio() { 
+            x.play(); 
+    } 
+        function pauseAudio() { 
+            x.pause(); 
+    } 
+
+        let i = 0;
+        let j = 0;
+        let speed = 80;
+
+        const txt = 'So Welcome to Izzys Literary Trivia Game, so the game are timed questions about quotes from literary figures, guess who said it.....';  
+        
+        const txt2 = 'What literary figure said the following quote? ..  "Yes, but in the case of the writer, or in the case of every artist, we have the duty for the most part, happy duty, of transforming everything into symbols. Those symbols can be colors, shapes, sounds. In the case of the poet, they are sounds but also words... Also fables, tales, poems. What I mean is that the work of the poet is endless. Its not about working from one hour to another. You are constantly receiving something from the outer world. It all has to be transformed; it eventually has to be changed. And in any moment a revelation may come. That is to say, that the poet never rests. He is working constantly, when he dreams too..."'; 
     
-    startGame();
+        function introGame(e) {
+        if (i < txt.length) {
+                document.getElementById("results").innerHTML += txt.charAt(i); i++; 
+                setTimeout(introGame, speed, e); 
+                $('#videoWin').delay(11900).fadeIn('slow'); 
+                playAudio();
+                //Syncing video to intro and quote is 11700 at the 80 speed.//   
+                $("#results").delay(11700).hide(emptyResults); 
+            }
+        } 
 
+        function emptyResults (e) { 
+        $('#results').empty(e).delay(12000); 
+        $("#results").show(e); 
+        }
+
+        $('#ReadButton').click(function startGame (e) { 
+            if (j < txt2.length) {
+                document.getElementById("results").innerHTML += txt2.charAt(j); j++; 
+                setTimeout(startGame, speed, e); 
+                playAudio();
+            }
+        });
+
+    introGame(emptyResults); 
+    M.AutoInit(); 
 
 
     // Created the below object of questions from the following site: 
@@ -501,6 +536,5 @@ $(document).ready(() => {
 
 
     
+});
 
-    
-}); 
