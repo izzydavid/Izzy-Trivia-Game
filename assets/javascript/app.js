@@ -1,11 +1,6 @@
 'use strict'
-/*globals $:false */
-{ 
-    "esversion": 6
-}
 $(document).ready(() => {
         $('#videoWin').hide();
-        $('#results').delay(12000).hide('slow'); 
 
         var x = document.getElementById("myAudio"); 
 
@@ -15,171 +10,170 @@ $(document).ready(() => {
         function pauseAudio() { 
             x.pause(); 
     } 
-    function emptyResults (e) { 
-        $('#results').empty(e);   
-    }
-        function showResults(e) { 
-        $('#results').show(e); 
-        }
 
-        let i = [];
-        let j = [];
+        let i = 0;
+        let j = 0;
         let speed = 80;
 
-        let txt = 'So Welcome to Izzys Literary Trivia Game, so the game are timed questions about quotes from literary figures, guess who said it.....';  
+        const txt = 'So Welcome to Izzys Literary Trivia Game, so the game are timed questions about quotes from literary figures, guess who said it.....';  
         
-        let txt2 = 'What literary figure said the following quote? ..  "Yes, but in the case of the writer, or in the case of every artist, we have the duty for the most part, happy duty, of transforming everything into symbols. Those symbols can be colors, shapes, sounds. In the case of the poet, they are sounds but also words... Also fables, tales, poems. What I mean is that the work of the poet is endless. Its not about working from one hour to another. You are constantly receiving something from the outer world. It all has to be transformed; it eventually has to be changed. And in any moment a revelation may come. That is to say, that the poet never rests. He is working constantly, when he dreams too..."'; 
+        const txt2 = 'What literary figure said the following quote? ..  "Yes, but in the case of the writer, or in the case of every artist, we have the duty for the most part, happy duty, of transforming everything into symbols. Those symbols can be colors, shapes, sounds. In the case of the poet, they are sounds but also words... Also fables, tales, poems. What I mean is that the work of the poet is endless. Its not about working from one hour to another. You are constantly receiving something from the outer world. It all has to be transformed; it eventually has to be changed. And in any moment a revelation may come. That is to say, that the poet never rests. He is working constantly, when he dreams too..."'; 
     
-        function introGame(e, emptyResults) {
+        function introGame(e) {
         if (i < txt.length) {
                 document.getElementById("results").innerHTML += txt.charAt(i); i++; 
-                playAudio();
                 setTimeout(introGame, speed, e); 
-                $("#results").delay(11700).fadeOut(emptyResults); 
-                //Syncing video to intro and quote is 11700 at the 80 speed.//  
-            $("#videoWin").delay(10000).fadeIn('slow')
-
+                $('#videoWin').delay(11900).fadeIn('slow'); 
+                playAudio();
+                //Syncing video to intro and quote is 11700 at the 80 speed.//   
+                $("#results").delay(11700).hide(emptyResults); 
             }
         } 
 
-        $('#ReadButton').click(function startGame (e, emptyResults) { 
+        function emptyResults (e) { 
+        $('#results').empty(e).delay(12000); 
+        $("#results").show(e); 
+        }
+
+        $('#ReadButton').click(function startGame (e) { 
             if (j < txt2.length) {
                 document.getElementById("results").innerHTML += txt2.charAt(j); j++; 
-                $("#results").delay(500).show(emptyResults, 'slow'); 
                 setTimeout(startGame, speed, e); 
                 playAudio();
             }
         });
+
     introGame(emptyResults); 
     M.AutoInit(); 
 
-    var i = 0;
-    var correctAnswers;
-    var incorrectAnswers;
-    var noAnswer;
-    var counter = 20;
-    var countDown; 
-    
-    
-    $('#start-button').on('click', function(){
-        $("#top-buttons").hide();
-        $("#start-game").hide();
-        $(".timer").show();
-        gameFunction();
-        timer();
-        correctAnswers = 0;
-        incorrectAnswers = 0;
-        noAnswer = 0;
-    });
 
-    function gameFunction() {
-        $(".question").html("<p class='question-text'>" + literaryQuestions[i].question + "</p>");
-        answerInput = "<p class='answerChoice'>" + literaryQuestions[i].answerChoices[0] + "</p><p class='answerChoice'>"+ literaryQuestions[i].answerChoices[1] +"</p><p class='answerChoice'>"+ literaryQuestions[i].answerChoices[2] +"</p><p class='answerChoice'>"+ literaryQuestions[i].answerChoices[3] +"</p>";
-        $(".answers").html(answerInput);
+    // var i = 0;
+    // var correctAnswers;
+    // var incorrectAnswers;
+    // var noAnswer;
+    // var counter = 20;
+    // var countDown; 
+    
+    
+    // $('#start-button').on('click', function(){
+    //     $("#top-buttons").hide();
+    //     $("#start-game").hide();
+    //     $(".timer").show();
+    //     gameFunction();
+    //     timer();
+    //     correctAnswers = 0;
+    //     incorrectAnswers = 0;
+    //     noAnswer = 0;
+    // });
+
+    // function gameFunction() {
+    //     $(".question").html("<p class='question-text'>" + literaryQuestions[i].question + "</p>");
+    //     answerInput = "<p class='answerChoice'>" + literaryQuestions[i].answerChoices[0] + "</p><p class='answerChoice'>"+ literaryQuestions[i].answerChoices[1] +"</p><p class='answerChoice'>"+ literaryQuestions[i].answerChoices[2] +"</p><p class='answerChoice'>"+ literaryQuestions[i].answerChoices[3] +"</p>";
+    //     $(".answers").html(answerInput);
         
-    };
+    // };
 
-    function timer() {
-        $(".timer").show();
-        countDown = setInterval(quizCounter, 1000);
-        function quizCounter () {
-            if (counter === 0) {
-                clearInterval(countDown);
-                timeoutAnswer();
-            }
-            if (counter > 0) {
-                counter--;
-            }
-            $(".timer-display").html(counter);
-        };
-    };
+    // function timer() {
+    //     $(".timer").show();
+    //     countDown = setInterval(quizCounter, 1000);
+    //     function quizCounter () {
+    //         if (counter === 0) {
+    //             clearInterval(countDown);
+    //             timeoutAnswer();
+    //         }
+    //         if (counter > 0) {
+    //             counter--;
+    //         }
+    //         $(".timer-display").html(counter);
+    //     };
+    // };
     
-    function questionAnswered() {
-        if (i < 9) {
-            i++;	
-            console.log("index: " + i);
-            gameFunction();
-            $(".results").empty();
-            $(".timer").show();
-            counter = 20;
-            timer();
-        } 
-        else {
-            gameOver();
-        }
-    };
+    // function questionAnswered() {
+    //     if (i < 9) {
+    //         i++;	
+    //         console.log("index: " + i);
+    //         gameFunction();
+    //         $(".results").empty();
+    //         $(".timer").show();
+    //         counter = 20;
+    //         timer();
+    //     } 
+    //     else {
+    //         gameOver();
+    //     }
+    // };
     
-    $(".answers").on("click", ".answerChoice", function(event) {
-        answerChoice = $(this).text();
-        rightAnswer = literaryQuestions[i].answerChoices[literaryQuestions[i].correctAnswer];
-        console.log("answerChoice: " + answerChoice);
-        console.log("rightAnswer: " + rightAnswer);
-        clearInterval(countDown)
-        if (answerChoice === rightAnswer) {
-            correctAnswer();
-        } else if (answerChoice !== rightAnswer) {
-            wrongAnswer();
-        } 
-    });
+    // $(".answers").on("click", ".answerChoice", function(event) {
+    //     answerChoice = $(this).text();
+    //     rightAnswer = literaryQuestions[i].answerChoices[literaryQuestions[i].correctAnswer];
+    //     console.log("answerChoice: " + answerChoice);
+    //     console.log("rightAnswer: " + rightAnswer);
+    //     clearInterval(countDown)
+    //     if (answerChoice === rightAnswer) {
+    //         correctAnswer();
+    //     } else if (answerChoice !== rightAnswer) {
+    //         wrongAnswer();
+    //     } 
+    // });
             
-    $('#restart-button').on('click', function(){
-        $(this).hide();
-        reset();
-    });
+    // $('#restart-button').on('click', function(){
+    //     $(this).hide();
+    //     reset();
+    // });
     
             
-    function correctAnswer () {
-        correctAnswers++;
-        console.log("correctAnswers: " + correctAnswers);
-        $(".question").empty();
-        $(".timer").hide();
-        $(".answers").empty();
-        $(".results").html("<p class='answer-message'>Congratulations! That was the correct answer!</p>");
-        setTimeout(questionAnswered, 3000);
-    };
+    // function correctAnswer () {
+    //     correctAnswers++;
+    //     console.log("correctAnswers: " + correctAnswers);
+    //     $(".question").empty();
+    //     $(".timer").hide();
+    //     $(".answers").empty();
+    //     $(".results").html("<p class='answer-message'>Congratulations! That was the correct answer!</p>");
+    //     setTimeout(questionAnswered, 3000);
+    // };
     
-    function wrongAnswer() {
-        incorrectAnswers++;
-        console.log("incorrectAnswers: " + incorrectAnswers);
-        $(".question").empty();
-        $(".timer").hide();
-        $(".answers").empty();
-        $(".results").html("<p class='answer-message'>Sorry, that wasn't right!</p>" + "<p class='correct-message'>The correct answer was </p>" + "<p class ='correct-answer'>" + literaryQuestions[i].answerChoices[literaryQuestions[i].correctAnswer] + ".</p>");
-        setTimeout(questionAnswered, 3000);
-    };
+    // function wrongAnswer() {
+    //     incorrectAnswers++;
+    //     console.log("incorrectAnswers: " + incorrectAnswers);
+    //     $(".question").empty();
+    //     $(".timer").hide();
+    //     $(".answers").empty();
+    //     $(".results").html("<p class='answer-message'>Sorry, that wasn't right!</p>" + "<p class='correct-message'>The correct answer was </p>" + "<p class ='correct-answer'>" + literaryQuestions[i].answerChoices[literaryQuestions[i].correctAnswer] + ".</p>");
+    //     setTimeout(questionAnswered, 3000);
+    // };
     
-    function timeoutAnswer() {
-        noAnswer++;
-        console.log("noAnswer:" + noAnswer);
-        console.log("correctAnswer: " + correctAnswer);
-        $(".question").empty();
-        $(".timer").hide();
-        $(".answers").empty();
-        $(".results").html("<p class='answer-message'>Sorry, time's up!</p>" + "<p class='correct-message'>The correct answer was </p>" + "<p class ='correct-answer'>" + literaryQuestions[i].answerChoices[literaryQuestions[i].correctAnswer] + ".</p>");
-        setTimeout(questionAnswered, 3000);
-    };
+    // function timeoutAnswer() {
+    //     noAnswer++;
+    //     console.log("noAnswer:" + noAnswer);
+    //     console.log("correctAnswer: " + correctAnswer);
+    //     $(".question").empty();
+    //     $(".timer").hide();
+    //     $(".answers").empty();
+    //     $(".results").html("<p class='answer-message'>Sorry, time's up!</p>" + "<p class='correct-message'>The correct answer was </p>" + "<p class ='correct-answer'>" + literaryQuestions[i].answerChoices[literaryQuestions[i].correctAnswer] + ".</p>");
+    //     setTimeout(questionAnswered, 3000);
+    // };
     
-    function reset() {
-        $(".question").empty();
-        $(".timer").hide();
-        $(".answers").empty();
-        $(".results").empty();
-        i = 0;
-        correctAnswers = 0;
-        incorrectAnswers = 0;
-        noAnswer = 0;
-        counter = 20;
-        gameFunction();
-        timer();
-    };
+    // function reset() {
+    //     $(".question").empty();
+    //     $(".timer").hide();
+    //     $(".answers").empty();
+    //     $(".results").empty();
+    //     i = 0;
+    //     correctAnswers = 0;
+    //     incorrectAnswers = 0;
+    //     noAnswer = 0;
+    //     counter = 20;
+    //     gameFunction();
+    //     timer();
+    // };
     
-    function gameOver() {
-        $(".question").empty();
-        $(".timer").hide();
-        $(".answers").empty();
-        $(".results").html("<p class='results'>Your Results:</p>" + "<p class='results'>Correct Answers: " + correctAnswers + "</p>" + "<p class='results'>Wrong Answers: " + incorrectAnswers + "</p>"+ "<p class='results'>Unanswered: " + noAnswer + "</p>");
-        $("#restart-button").show();
-    };
+    // function gameOver() {
+    //     $(".question").empty();
+    //     $(".timer").hide();
+    //     $(".answers").empty();
+    //     $(".results").html("<p class='results'>Your Results:</p>" + "<p class='results'>Correct Answers: " + correctAnswers + "</p>" + "<p class='results'>Wrong Answers: " + incorrectAnswers + "</p>"+ "<p class='results'>Unanswered: " + noAnswer + "</p>");
+    //     $("#restart-button").show();
+    // };
 
 
 
