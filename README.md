@@ -4,7 +4,12 @@ Izzy Trivia Game. Questions about literature.
 
   ![ALT TXT](https://raw.githubusercontent.com/izzydavid/Izzy-Trivia-Game/master/assets/images/Izzy's-Literary-Trivia-Game.gif)
 
-![ALT TXT](https://github.com/izzydavid/Izzy-Trivia-Game/blob/master/assets/images/Izzy's-Literary-Trivia-Game1.gif?raw=true)
+  ![ALT TXT](https://github.com/izzydavid/Izzy-Trivia-Game/blob/master/assets/images/Izzy's-Literary-Trivia-Game1.gif?raw=true)
+
+
+
+
+  
 # JavaScript Assignment 2
 
 ### Overview
