@@ -41,6 +41,37 @@ html {
     border-radius: 20px !important;
 }
 
+
+
+#game-display {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    width: 50%;
+}
+
+.question-text {
+    font-size: 25px;
+}
+.answerChoice {
+    margin-top: 5px;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+.answerChoice:hover {
+    box-shadow: 0px 0px 5px #888888;
+    color: #FEFEFE;
+    background-color: darkslategray;
+}
+
+.timer {
+    display:none;
+    margin-top: 10px;
+}
+
+
+
 img { 
     height: 20%;
     width: 25%;

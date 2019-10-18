@@ -1,69 +1,98 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Izzy's-Literary-Trivia-Game</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../Izzy-Trivia-Game/assets/css/style.css">
-    <link rel="stylesheet" href="../Izzy-Trivia-Game/assets/css/reset.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Zilla+Slab&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Izzy's-Literary-Trivia-Game</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../Izzy-Trivia-Game/assets/css/style.css">
+  <link rel="stylesheet" href="../Izzy-Trivia-Game/assets/css/reset.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Zilla+Slab&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!--Start of the Background Video from Magic Book-->
-<video playsinline muted autoplay loop id="videoBackground"> 
-        <source src="../Izzy-Trivia-Game/assets/videos/Magic-book-with-animation-glowing-letters.mp4">
-</video>
-<!--End of the Background Video from Magic Book-->
+  <!--Start of the Background Video from Magic Book-->
+  <video playsinline muted autoplay loop id="videoBackground">
+    <source src="../Izzy-Trivia-Game/assets/videos/Magic-book-with-animation-glowing-letters.mp4">
+  </video>
+  <!--End of the Background Video from Magic Book-->
 
-<!--Start of the Jorge Luis Borges Video-->
-        <video id="videoWin" class="col s12 m4 l3" autoplay muted src ='../Izzy-Trivia-Game/assets/videos/Jorge_Luis_Borges.m4v'> 
-        </video>  
+  <!--Start of the Jorge Luis Borges Video-->
+  <video id="videoWin" class="col s12 m4 l3" autoplay muted
+    src='../Izzy-Trivia-Game/assets/videos/Jorge_Luis_Borges.m4v'>
+  </video>
   <!--End of the Jorge Luis Borges Video-->
 
 
-<div class="center-align container col s12 m4 l3"> 
-            <div class="card col s12 m4 l3 center-align"> 
+  <div class="center-align container col s12 m4 l3">
 
-            <!---Start of the Read Button, if click again it types the quotes faster and ToolTips Javascript from Materialize-->
-            <a id='ReadButton' class="col s12 m4 l3 center-align btn tooltipped row red lighten-3" data-position="top" data-tooltip="Click 'Read Here' to start Game" onclick='startGame()'>Read Here</a>
-            <!---End of the Read Button, if click again it types the quotes faster and ToolTips Javascript from Materialize-->
+    <div class="card col s12 m4 l3 center-align">
 
-            <!---Start of the Results of Literary-->
-            <p id="results"></p>
-            <!---End of the Results of Literary-->
+      <!---Start of the Read Button, if click again it types the quotes faster and ToolTips Javascript from Materialize-->
+      <a id='ReadButton' class="col s12 m4 l3 center-align btn tooltipped row red lighten-3" data-position="top"
+        data-tooltip="Click 'Read Here' to start Game" onclick='startGame()'>Read Here</a>
+        <!---End of the Read Button, if click again it types the quotes faster and ToolTips Javascript from Materialize-->
+          <!-- Modal Trigger -->
 
-            <!---Start of the Card-Tabs From Materialize-->
-            <div class="card-tabs col s12 m4 l3">
-            <ul class="tabs tabs-fixed-width col s12 m4 l3">
-            <li class="tab"><a class="active" href="#optionA">Option A</a></li>
-            <li class="tab"><a href="#optionB">Option B</a></li>
-            <li class="tab"><a href="#optionC">Option C</a></li>
-            <li class="tab"><a href="#optionD">Option D</a> </li>
-            </ul>
-            </div>
-            <!---End of the Card-Tabs From Materialize-->
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Instructions</h4>
+      <p>So Welcome to Izzys Literary Trivia Game, so the game are timed questions about quotes from literary figures, guess who said it.....</p>
+    </div>
 
-<audio id="myAudio">
-  <source src="../Izzy-Trivia-Game/assets/sound/Typewriter.mp3" type="audio/mpeg">
-    <source src="../Izzy-Trivia-Game/assets/sound/TypewriterNoBell.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+  </div>
+  <button data-target="modal1" class="btn modal-trigger">How to Play</button>
+  
+  <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Are you Sure</a>
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+
+    </div>
+  </div>
+          
+        <!---Start of the Results of Literary-->
+        <p id="results"></p>
+        <!---End of the Results of Literary-->
+
+        <!---Start of the Card-Tabs From Materialize-->
+        <div class="card-tabs col s12 m4 l3">
+          <ul class="tabs tabs-fixed-width col s12 m4 l3">
+            <li class="tab tooltipped" data-position="top" data-tooltip="Click on a name as your answer"><a
+                class="active" href="#optionA">Julio Cortez</a></li>
+            <li class="tab tooltipped" data-position="top" data-tooltip="Click on a name as your answer"><a
+                href="#optionB">David Foster Wallace</a></li>
+            <li class="tab tooltipped" data-position="top" data-tooltip="Click on a name as your answer"><a
+                href="#optionC">Jorge Luis Borges</a></li>
+            <li class="tab tooltipped" data-position="top" data-tooltip="Click on a name as your answer"><a
+                href="#optionD">Cormac McCarthy</a> </li>
+          </ul>
+        </div>
+        <!---End of the Card-Tabs From Materialize-->
+
+        <audio id="myAudio">
+          <source src="../Izzy-Trivia-Game/assets/sound/Typewriter.mp3" type="audio/mpeg">
+          <source src="../Izzy-Trivia-Game/assets/sound/TypewriterNoBell.mp3" type="audio/mpeg">
+        </audio>
 
 
-<!---End of the Main Container-->
-</div>
+        <!---End of the Main Container-->
+      </div>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="../Izzy-Trivia-Game/assets/javascript/app.js"> </script>
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"> </script>
+
 </html>
